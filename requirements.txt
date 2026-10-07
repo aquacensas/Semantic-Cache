@@ -1,0 +1,5 @@
+redisvl==0.27.2
+openai==3.26.0
+numpy
+pydantic-settings
+pytest

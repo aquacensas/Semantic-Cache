@@ -1,0 +1,14 @@
+# Phase 1: only Redis Stack for now. More services (proxy, Prometheus, Grafana) come in later phases.
+services:
+  redis:
+    image: redis/redis-stack:latest
+    container_name: semantic-cache-redis
+    ports:
+      - "6379:6379"   # Redis itself (our app talks to this)
+      - "8001:8001"   # RedisInsight web UI -> open http://localhost:8001 to look at cached data
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+
+volumes:
+  redis-data:
